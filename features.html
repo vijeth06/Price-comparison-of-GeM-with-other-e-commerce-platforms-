@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Price Comparison Tool</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #f4f4f9, #e0f7fa); 
+        scroll-behavior: smooth;
+    }    
+    
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-size: 1.5em;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            padding: 8px 12px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #4CAF50;
+            border-radius: 5px;
+        }
+
+        .features-container {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .features-container h2 {
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .feature-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            width: 280px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card img {
+            width: 60px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            margin: 10px 0;
+            font-size: 1.6em;
+            color: #4CAF50;
+        }
+
+        .feature-card p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 1em;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">GeM vs E-com</div>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="features-container">
+        <h2>Our Features</h2>
+        <div class="feature-cards">
+            <div class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828557.png" alt="Comparison">
+                <h3>Comprehensive Comparison</h3>
+                <p>Compare prices across GeM, Amazon, and Flipkart to find the best deals on your favorite products.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://img.icons8.com/ios-filled/50/4CAF50/time-management.png" alt="Real-Time">
+                <h3>Real-Time Updates</h3>
+                <p>Get the latest prices and stock availability with real-time data updates directly from the platforms.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828506.png" alt="User Interface">
+                <h3>Easy to Use</h3>
+                <p>Our user-friendly interface is designed to make price comparisons easy and quick for everyone.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://img.icons8.com/ios-filled/50/4CAF50/multiple-devices.png" alt="Multi-Device">
+                <h3>Multi-Device Support</h3>
+                <p>Access our tool on any device—whether you're using a smartphone, tablet, or desktop.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://img.icons8.com/ios-filled/50/4CAF50/filter.png" alt="Filters">
+                <h3>Advanced Filters</h3>
+                <p>Use filters to narrow down your search by price range, product category, and more.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://img.icons8.com/ios-filled/50/4CAF50/security-checked.png" alt="Secure">
+                <h3>Secure Browsing</h3>
+                <p>Enjoy secure and private browsing while comparing prices on our platform.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Price Comparison Tool. Designed to help you find the best deals across multiple platforms.</p>
+        <p>Follow us on:</p>
+        <div class="social-icons">
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+            <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Twitter"></a>
+            <a href="#"><img src="twitter_logo.png" alt="Instagram"></a>
+        </div>
+    </footer>
+</body>
+</html>

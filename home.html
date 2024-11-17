@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Comparison Tool</title>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+       
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-size: 1.6em;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #4CAF50;
+            border-radius: 5px;
+            color: white;
+        }
+        .auth-buttons {
+            display: flex;
+        }
+
+        .auth-buttons a {
+            color: #4CAF50;
+            background-color: white;
+            border: 2px solid #4CAF50;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 1em;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .auth-buttons a:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+      
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            background: linear-gradient(135deg, rgba(255, 126, 95, 0.8), rgba(254, 180, 123, 0.8)), url('https://source.unsplash.com/1600x900/?shopping,market');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin: 0;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            margin-top: 10px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 2s ease-out;
+        }
+
+        .hero .button {
+            padding: 12px 25px;
+            font-size: 1.2em;
+            color: #4CAF50;
+            background-color: white;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .hero .button:hover {
+            background-color: #4CAF50;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* About Section */
+        .about {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        .about h2 {
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .about p {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #e9f5e9;
+        }
+
+        .features h2 {
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .features .feature-card {
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+            padding: 20px;
+            max-width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .features .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .features .feature-card h3 {
+            margin-bottom: 15px;
+            color: #4CAF50;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+
+        .features .feature-card p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .features .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 40px 20px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-about {
+            flex: 1;
+            min-width: 200px;
+            margin-right: 20px;
+        }
+
+        .footer-about h3 {
+            margin-bottom: 15px;
+            color: #4CAF50;
+            font-size: 1.4em;
+        }
+
+        .footer-about p {
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .footer-links {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 15px;
+            color: #4CAF50;
+            font-size: 1.2em;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links ul li a:hover {
+            color: #4CAF50;
+        }
+
+        .footer-social {
+            flex: 1;
+            min-width: 150px;
+            text-align: left;
+        }
+
+        .footer-social h4 {
+            margin-bottom: 15px;
+            color: #4CAF50;
+            font-size: 1.2em;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin-right: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
+        }
+
+        .social-icons img {
+            width: 25px;
+            height: 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">GeM vs E-com</div>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="auth-buttons">
+            <a href="signup.html">Sign Up</a>
+            <a href="login.html">Login</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Welcome to GeM vs E-com</h1>
+        <p>Compare prices from the Government e-Marketplace with other popular platforms.</p>
+        <a href="login.html" class="button">Compare Now</a>
+    </section>
+
+    <section class="about">
+        <h2>About Us</h2>
+        <p>We provide a tool to help you make informed buying decisions by comparing prices from the Government e-Marketplace (GeM) with other popular e-commerce platforms.</p>
+    </section>
+
+    <section class="features">
+        <h2>Features</h2>
+        <div class="card-container">
+            <div class="feature-card">
+                <h3>Accurate Comparisons</h3>
+                <p>Get real-time price comparisons from various e-commerce platforms to make informed purchasing decisions.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Easy to Use</h3>
+                <p>Our intuitive interface allows you to easily compare prices with just a few clicks.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Secure</h3>
+                <p>We prioritize your data privacy and provide a secure environment for your comparisons.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>About GeM vs E-com</h3>
+                <p>GeM vs E-com provides accurate price comparisons between the Government e-Marketplace and other leading e-commerce platforms, helping users make the best purchasing decisions.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Twitter"></a>
+                    <a href="#"><img src="twitter_logo.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

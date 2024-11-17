@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Comparison</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 40px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-align: center;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            display: inline-block;
+            font-size: 1.1rem;
+            margin: 0 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #28a745;
+            transform: scale(1.1);
+        }
+
+        nav a.active {
+            background-color: #218838;
+            font-weight: bold;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 15px;
+            margin: 15px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            outline: none;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"]:focus {
+            border-color: #28a745;
+        }
+
+        button {
+            width: 80%;
+            padding: 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 18px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background-color: #f2f2f2;
+            color: #555;
+            font-weight: bold;
+        }
+
+        .comparison-table td {
+            background-color: #fff;
+            color: #333;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        .comparison-table tr:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .platform-link {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .platform-link:hover {
+            color: #28a745;
+        }
+
+        .logo {
+            max-height: 35px;
+            max-width: 70px;
+            margin-right: 12px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .logo img {
+            max-height: 50px;
+        }
+
+        .platform {
+            display: flex;
+            align-items: center;
+        }
+
+        .platform img {
+            margin-right: 10px;
+        }
+
+        .header .title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .platform {
+            display: flex;
+            align-items: center;
+        }
+
+        .platform img {
+            margin-right: 10px;
+        }
+
+        .header .title span {
+            color: #28a745;
+        }
+        
+               @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            input[type="text"], button {
+                width: 90%;
+            }
+
+            .comparison-table th, .comparison-table td {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="home.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="features.html" class="nav-link">Features</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="comparison.html" class="nav-link active">Comparison</a>
+    </nav>
+
+    <div class="container">
+        <h1 class="title">Product Comparison</h1>
+        <input type="text" id="productName" placeholder="Enter Product Name">
+        <button id="searchBtn">Search</button>
+        <table class="comparison-table" id="comparisonTable">
+            <thead>
+                <tr>
+                    <th>Platform</th>
+                    <th>Availability</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="platform">
+                            <img src="flipkart_logo.png" alt="Flipkart Logo" class="logo">
+                            Flipkart
+                        </div>
+                    </td>
+                    <td id="flipkartAvailability">-</td>
+                    <td><a href="#" class="platform-link" id="flipkartLink" target="_blank">View on Flipkart</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="platform">
+                            <img src="ebay_logo.png" alt="eBay Logo" class="logo">
+                            eBay
+                        </div>
+                    </td>
+                    <td id="ebayAvailability">-</td>
+                    <td><a href="#" class="platform-link" id="ebayLink" target="_blank">View on eBay</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="platform">
+                            <img src="croma_logo.png" alt="Croma Logo" class="logo">
+                            Croma
+                        </div>
+                    </td>
+                    <td id="cromaAvailability">-</td>
+                    <td><a href="#" class="platform-link" id="cromaLink" target="_blank">View on Croma</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="platform">
+                            <img src="amazon_logo.png" alt="Amazon Logo" class="logo">
+                            Amazon
+                        </div>
+                    </td>
+                    <td id="amazonAvailability">-</td>
+                    <td><a href="#" class="platform-link" id="amazonLink" target="_blank">View on Amazon</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="platform">
+                            <img src="olx_logo.png" alt="OLX Logo" class="logo">
+                            OLX
+                        </div>
+                    </td>
+                    <td id="olxAvailability">-</td>
+                    <td><a href="#" class="platform-link" id="olxLink" target="_blank">View on OLX</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="platform">
+                            <img src="gem_logo.png" alt="GeM Logo" class="logo">
+                            GeM
+                        </div>
+                    </td>
+                    <td id="gemAvailability">-</td>
+                    <td><a href="#" class="platform-link" id="gemLink" target="_blank">View on GeM</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+                document.getElementById("searchBtn").onclick = function() {
+            const productName = document.getElementById("productName").value;
+            if (!productName) {
+                alert("Please enter a product name.");
+                return;
+            }
+
+
+            document.getElementById("flipkartLink").href = "https://www.flipkart.com/search?q=" + productName;
+            document.getElementById("ebayLink").href = "https://www.ebay.com/sch/i.html?_nkw=" + productName;
+            document.getElementById("cromaLink").href = "https://www.croma.com/search/?q=" + productName;
+            document.getElementById("amazonLink").href = "https://www.amazon.in/s?k=" + productName;
+            document.getElementById("olxLink").href = "https://www.olx.in/items/q-" + productName;
+	    document.getElementById("gemLink").href = "https://mkp.gem.gov.in/search?q=" + encodeURIComponent(productName);
+
+
+            document.getElementById("flipkartAvailability").innerText = "Available";
+            document.getElementById("ebayAvailability").innerText = "In Stock";
+            document.getElementById("cromaAvailability").innerText = "Available";
+            document.getElementById("amazonAvailability").innerText = "In Stock";
+            document.getElementById("olxAvailability").innerText = "Available";
+            document.getElementById("gemAvailability").innerText = "In Stock";
+        };
+    </script>
+</body>
+</html>

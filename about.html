@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - GeM Price Comparison Tool</title>
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-size: 1.6em;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #4CAF50;
+            border-radius: 5px;
+            color: white;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/1600x900/?ecommerce,shopping');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero .btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero .btn:hover {
+            background-color: #45a049;
+        }
+
+        .about {
+            padding: 60px 20px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        .about .mission {
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .about .mission h2 {
+            font-size: 2.5em;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .about .mission p {
+            font-size: 1.1em;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .about .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .about .features .feature {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about .features .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .about .features .feature h3 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+        }
+
+        .about .features .feature p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        .about .testimonials {
+            background-color: #e9f5e9;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .about .testimonials h2 {
+            font-size: 2.5em;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .about .testimonial {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .about .testimonial img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+
+        .about .testimonial p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        footer {
+            background-color: #222;
+            color: #ccc;
+            padding: 40px 20px;
+            font-family: 'Poppins', Arial, sans-serif;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-about {
+            flex: 1;
+            min-width: 200px;
+            margin-right: 20px;
+        }
+
+        .footer-about h3 {
+            margin-bottom: 15px;
+            color: #4CAF50;
+            font-size: 1.4em;
+        }
+
+        .footer-about p {
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .footer-links {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 15px;
+            color: #4CAF50;
+            font-size: 1.2em;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links ul li a:hover {
+            color: #4CAF50;
+        }
+
+        .footer-social {
+            flex: 1;
+            min-width: 150px;
+            text-align: left;
+        }
+
+        .footer-social h4 {
+            margin-bottom: 15px;
+            color: #4CAF50;
+            font-size: 1.2em;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin-right: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @media (max-width: 768px) {
+            .about .features {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">GeM vs E-com</div>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h1>About Us</h1>
+        <p>Ensuring Fair and Competitive Pricing Across Platforms</p>
+        <a href="#mission" class="btn">Learn More</a>
+    </div>
+
+    <section class="about" id="mission">
+        <div class="mission">
+            <h2>Our Mission</h2>
+            <p>Our mission is to provide users with a transparent, efficient, and comprehensive price comparison solution for products listed on GeM and other popular e-commerce platforms. By leveraging advanced data scraping techniques, APIs, and data analytics, we empower government departments, organizations, and consumers to make informed purchasing decisions and ensure competitive pricing across platforms.</p>
+        </div>
+
+        <div class="features">
+            <div class="feature">
+                <h3>Real-Time Data</h3>
+                <p>Get up-to-date pricing information from multiple platforms, ensuring you always have the latest data at your fingertips.</p>
+            </div>
+            <div class="feature">
+                <h3>Comprehensive Coverage</h3>
+                <p>We cover a wide range of products across GeM, Amazon, and Flipkart to provide a thorough comparison for all your needs.</p>
+            </div>
+            <div class="feature">
+                <h3>Data Analytics</h3>
+                <p>Analyze pricing trends and patterns to make more informed purchasing decisions based on historical data and insights.</p>
+            </div>
+        </div>
+
+        <div class="testimonials">
+            <h2>What Our Users Say</h2>
+            <div class="testimonial">
+                <p>"GeM vs Ecom has transformed the way we compare prices for procurement. It saves us time and helps ensure we get the best deals available!"</p>
+            </div>
+            <div class="testimonial">
+                <p>"The platform is user-friendly and provides accurate, real-time data, making it an invaluable tool for government procurement processes."</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h3>About GeM vs E-com</h3>
+                <p>We are committed to bringing transparency and efficiency to the online marketplace by providing accurate price comparisons between GeM and popular e-commerce platforms.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Twitter"></a>
+                    <a href="#"><img src="twitter_logo.png" alt="Instagram"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 GeM vs E-com. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
